@@ -1,0 +1,17 @@
+main {
+  /* flex items-center justify-center pt-16 pb-4 flex-col */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+  padding-bottom: 4px;
+}
+
+.search {
+  /* flex mt-8 mb-8 */
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

@@ -1,13 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createHashRouter, RouterProvider } from 'react-router';
+import {
+  ChakraProvider,
+  createSystem,
+  defaultConfig,
+  defineConfig,
+} from "@chakra-ui/react"
+
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Home } from './pages/home/home';
+import { Login } from './pages/login/login';
+
+const config = defineConfig({
+  theme: {
+    tokens: {
+      colors: {},
+    },
+  },
+})
+
+const system = createSystem(defaultConfig, config)
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider value={system}>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 );
 
